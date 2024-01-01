@@ -7,7 +7,7 @@ def home():
     return render_template("home.html")
 
 @app.route("/translator/")
-def about():
+def translator():
     return render_template("translator.html")
 
 @app.route("/about/")
