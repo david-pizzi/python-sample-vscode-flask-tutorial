@@ -6,6 +6,10 @@ from . import app
 def home():
     return render_template("home.html")
 
+@app.route("/translator/")
+def about():
+    return render_template("translator.html")
+
 @app.route("/about/")
 def about():
     return render_template("about.html")
