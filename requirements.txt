@@ -1,1 +1,3 @@
-Flask
+flask
+python-dotenv
+requests
