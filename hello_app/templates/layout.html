@@ -4,13 +4,17 @@
         <meta charset="utf-8" />
         <title>{% block title %}{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css') }}"  />
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     </head>
 
     <body>
         <div class="navbar">
             <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
             <a href="{{ url_for('translator') }}" class="navbar-item">Translator</a>
+            <a href="{{ url_for('rockpaperscissor') }}" class="navbar-item">RockPaperScissor</a>
             <a href="{{ url_for('about') }}" class="navbar-item">About</a>
             <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
         </div>
@@ -20,7 +24,7 @@
             {% endblock %}
             <hr/>
             <footer>
-                <p>&copy; 2018</p>
+                <p>&copy; 2024</p>
             </footer>
         </div>
     </body>

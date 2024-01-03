@@ -6,6 +6,8 @@ from datetime import datetime
 from flask import Flask, render_template, request
 from . import app
 
+from rockpaperscissor import *
+
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -58,6 +60,10 @@ def translator_post():
         original_text=original_text,
         target_language=target_language
     )
+
+@app.route("/rockpaperscissor/")
+def about():
+    return render_template("rockpaperscissor.html")
 
 @app.route("/about/")
 def about():
