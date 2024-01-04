@@ -1,20 +1,24 @@
-import requests, os, uuid, json
+from . import rockpaperscissor
+from . import app
+from flask import Flask, render_template, request
+from datetime import datetime
+import requests
+import os
+import uuid
+import json
 from dotenv import load_dotenv
 load_dotenv()
 
-from datetime import datetime
-from flask import Flask, render_template, request
-from . import app
-
-from . import rockpaperscissor
 
 @app.route("/")
 def home():
     return render_template("home.html")
 
+
 @app.route("/translator/", methods=['GET'])
 def translator():
     return render_template("translator.html")
+
 
 @app.route('/translator/', methods=['POST'])
 def translator_post():
@@ -43,10 +47,11 @@ def translator_post():
     }
 
     # Create the body of the request with the text to be translated
-    body = [{ 'text': original_text }]
+    body = [{'text': original_text}]
 
     # Make the call using post
-    translator_request = requests.post(constructed_url, headers=headers, json=body)
+    translator_request = requests.post(
+        constructed_url, headers=headers, json=body)
     # Retrieve the JSON response
     translator_response = translator_request.json()
     # Retrieve the translation
@@ -61,30 +66,36 @@ def translator_post():
         target_language=target_language
     )
 
+
 @app.route("/rockpaperscissor/", methods=['Get'])
 def rockpaperscissor():
     return render_template("rockpaperscissor.html")
+
 
 @app.route("/rockpaperscissor/", methods=['POST'])
 def rockpaperscissor_submit():
     return "submitted"
 
+
 @app.route("/about/")
 def about():
     return render_template("about.html")
+
 
 @app.route("/contact/")
 def contact():
     return render_template("contact.html")
 
+
 @app.route("/hello/")
 @app.route("/hello/<name>")
-def hello_there(name = None):
+def hello_there(name=None):
     return render_template(
         "hello_there.html",
         name=name,
         date=datetime.now()
     )
+
 
 @app.route("/api/data")
 def get_data():
