@@ -21,7 +21,6 @@ class Participant:
     def incrementPoint(self):
         self.points += 1
 
-ßßß
 class GameRound:
     def __init__(self):
         self.rules = [
