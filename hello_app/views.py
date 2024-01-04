@@ -61,9 +61,13 @@ def translator_post():
         target_language=target_language
     )
 
-@app.route("/rockpaperscissor/")
+@app.route("/rockpaperscissor/", methods=['Get'])
 def rockpaperscissor():
     return render_template("rockpaperscissor.html")
+
+@app.route("/rockpaperscissor/", methods=['POST'])
+def rockpaperscissor_submit():
+    return "submitted"
 
 @app.route("/about/")
 def about():

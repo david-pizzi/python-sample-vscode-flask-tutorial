@@ -6,4 +6,33 @@ Rock Paper Scissor
     <div class="container">
         rockpaperscissor
     </div>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+     </form>
+    <script>
+        $(document).ready(function() {
+           $('form').submit(function(event) {
+              event.preventDefault();
+              $.ajax({
+                 type: 'POST',
+                 url: "{{ url_for('rockpaperscissor') }}",
+                 data: $('form').serialize(),
+                 success: function() {
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#message').val('');
+                    alert('Form submitted!');
+                 }
+              });
+           });
+        });
 {% endblock %}
