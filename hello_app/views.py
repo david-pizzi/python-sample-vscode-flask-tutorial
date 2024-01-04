@@ -6,7 +6,7 @@ from datetime import datetime
 from flask import Flask, render_template, request
 from . import app
 
-import rockpaperscissor
+from . import rockpaperscissor
 
 @app.route("/")
 def home():
