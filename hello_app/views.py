@@ -62,7 +62,7 @@ def translator_post():
     )
 
 @app.route("/rockpaperscissor/")
-def about():
+def rockpaperscissor():
     return render_template("rockpaperscissor.html")
 
 @app.route("/about/")
